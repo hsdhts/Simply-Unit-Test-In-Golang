@@ -8,6 +8,17 @@ import (
 	"testing"
 )
 
+// Main Test
+func TestMain(m *testing.M) {
+	//before
+	fmt.Println("BEFORE RUN UNIT TEST")
+
+	m.Run()
+
+	//after
+	fmt.Println("AFTER RUN UNIT TEST")
+}
+
 // Skip test
 func TestSkip(t *testing.T) {
 	if runtime.GOOS == "Darwin" {
