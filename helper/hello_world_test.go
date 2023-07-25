@@ -8,6 +8,44 @@ import (
 	"testing"
 )
 
+// Benchmark Table
+func BenchmarkTable(b *testing.B) {
+	benchmarks := []struct {
+		name    string
+		request string
+	}{
+		{
+			name:    "Husada",
+			request: "Husada",
+		}, {
+			name:    "Hutasoit",
+			request: "Hutasoit",
+		},
+	}
+	for _, benchmark := range benchmarks {
+		b.Run(benchmark.name, func(b *testing.B) {
+			for i := 0; i < b.N; i++ {
+				HelloWorld(benchmark.request)
+			}
+		})
+	}
+}
+
+// Sub BenchMark
+func BenchmarkSub(b *testing.B) {
+	b.Run("Husada", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			HelloWorld("Husada")
+		}
+	})
+	b.Run("Hutasoit", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			HelloWorld("Hutasoit")
+		}
+	})
+
+}
+
 //Benchmark
 
 func BenchmarkHelloWorld(b *testing.B) {
