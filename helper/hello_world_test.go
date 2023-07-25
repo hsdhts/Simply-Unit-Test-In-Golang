@@ -8,6 +8,19 @@ import (
 	"testing"
 )
 
+//Benchmark
+
+func BenchmarkHelloWorld(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		HelloWorld("Husada")
+	}
+}
+func BenchmarkHelloHutasoit(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		HelloWorld("Hutasoit")
+	}
+}
+
 // Table Test
 func TestTableHelloWorld(t *testing.T) {
 	tests := []struct {
